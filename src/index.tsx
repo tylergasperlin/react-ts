@@ -5,19 +5,10 @@ interface AppProps {
     color?: string;
 }
 
-interface AppState{
-    counter: number;
-}
+class App extends React.Component<AppProps> {
 
-class App extends React.Component<AppProps, AppState> {
-    //this overrides state within react.component == chose this or below
     state = {counter: 0}
-
-    //if you dont want to overide state within react component
-    constructor(props: AppProps){
-        super(props)
-        this.state = {counter: 0}
-    }
+    
     onIncrement = (): void => {
         this.setState({counter: this.state.counter + 1})
     }
