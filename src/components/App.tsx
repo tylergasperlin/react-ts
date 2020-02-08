@@ -13,11 +13,18 @@ interface AppProps {
     fetchTodos: Function
     deleteTodo: typeof deleteTodo;
 }
+const [fetching, setFetching] = React.useState(false)
+React.useEffect (() =>{
+    setFetching(false)
+})
 
 class _App extends React.Component<AppProps> {
     onButtonClick = (): void => {
         this.props.fetchTodos();
+        setFetching(true)
     };
+
+
 
     renderList(): JSX.Element[] {
         return this.props.todos.map((todo: Todo) => {
