@@ -16,15 +16,14 @@ export interface FetchTodosAction {
 const url = 'https://jsonplaceholder.typicode.com/todos';
 
 export const fetchTodos = () => {
-    return (dispatch: Dispatch) => {
-        return async (dispatch: Dispatch) => {
-            const response = await axios.get<Todo[]>(url);
-            //using type annotation ensures you pass in the correct types and properties
-            //this is optional
-            dispatch<FetchTodosAction>({
-                type: ActionTypes.fetchtodos,
-                payload: response.data
-            });
-        };
+    return async (dispatch: Dispatch) => {
+        const response = await axios.get<Todo[]>(url);
+        //using type annotation ensures you pass in the correct types and properties
+        //this is optional
+        dispatch<FetchTodosAction>({
+            type: ActionTypes.fetchtodos,
+            payload: response.data
+        });
+        
     };
 };
