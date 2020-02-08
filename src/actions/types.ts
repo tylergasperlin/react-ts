@@ -1,3 +1,5 @@
+import {FetchTodosAction, DeleteTodoAction} from './todos'
+
 export enum ActionTypes {
     //this returns fetchtodos = 0 if you do not define what it is
     //an action only requires the type to be unique
@@ -5,3 +7,5 @@ export enum ActionTypes {
     fetchtodos,
     deleteTodo
 }
+
+export type Action = FetchTodosAction | DeleteTodoAction
